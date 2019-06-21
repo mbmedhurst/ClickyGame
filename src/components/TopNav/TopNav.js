@@ -16,7 +16,7 @@ class TopNav extends Component {
 
         return (
             <div className={{ root: styles.root }}>
-                <AppBar position="static" color="default">
+                <AppBar position="fixed" style={{backgroundColor: '#001a8c'}}>
                     <Toolbar>
                         <Typography variant="h6" color="inherit">
                             Clicky Game
