@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import './App.css'
 import TopNav from './components/TopNav'
-import ImgCard from './components/ImgCard'
+import ImgBtn from './components/ImgButton'
 
 class App extends Component {
   render() {
     return (
       <>
       <TopNav />
-      <ImgCard />
+      <ImgBtn />
 
       </>
     )
