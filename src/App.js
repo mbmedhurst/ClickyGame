@@ -54,24 +54,12 @@ const App = props => {
   // -- images shuffle
   
   
-  // function to manage score and top score
+  // function to manage score and top score  
   
-  
-  // function to shuffle images
-  // this is too random - it repeats the same image more than once and leaves others out
-  // I want each image to show one time but suffle positions
-    // const shuffle = (imgArr) => {
-    //     for (let i = imgArr.length - 1; i > 0; i--) {
-    //       let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
-    //       [imgArr[i], imgArr[j]] = [imgArr[j], imgArr[i]]; // swap elements
-    //     }
-    //   }
-  
-
   return (
       <>
       <TopNav />
-      <ImgBtn img={imgArr} />
+      <ImgBtn imgArr={imgArr} />
 
       </>
     )
