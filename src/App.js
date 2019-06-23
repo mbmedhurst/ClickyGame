@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import './App.css'
 import TopNav from './components/TopNav'
 import ImgBtn from './components/ImgButton'
+// npm package which shuffles an array
 import shuffle from 'shuffle-array'
+
 
 class App extends Component {
   state = {
@@ -22,8 +24,8 @@ class App extends Component {
     ],
     guesses: [],
     score: 0,
-    topScore: 0,
-    goodGuess: true
+    topScoreArr: [0],
+    goodGuess: 'Click an image to begin!'
   }
 
   // function to shuffle the images
@@ -35,8 +37,7 @@ class App extends Component {
   }
 
   // function to determine if click is a match or not
-  // the push to the guessed array is working
-  // the function to check if there is a match is not working
+  // this is working!
   handleClickImage = (img) => {
     let guesses = this.state.guesses
     this.handleEvaluateMatch(img)
@@ -49,51 +50,36 @@ class App extends Component {
   // function to evaluate whether the image has already been clicked
   handleEvaluateMatch = (img) => {
     let guesses = this.state.guesses
-    for (var i = 0; i < guesses.length; i++) {
+    let score = this.state.score
+    let topScoreArr = this.state.topScoreArr
+    for (var i = -1; i < guesses.length; i++) {
       if (img !== guesses[i]) {
-        console.log('You guessed correctly!')
+        this.setState({ score: this.state.score + 1, goodGuess: 'You guessed correctly!' })
+        // the top score array is always one click behind the score
+        topScoreArr.push(this.state.score)
+        this.setState({ ...score })
+        console.log(topScoreArr)
       } else {
         console.log('You guessed incorrectly!')
+        // reset score is not working consistently
+        this.setState({ guesses: [], score: 0, goodGuess: 'You guessed incorrectly!' })
       }
     }
   }
 
-
-
-  // clicked image id is pushed to an arry of clicked images
-  // every time an image is clicked, we loop through the array to see if there is a match
-  // if there IS NOT a match:
-  // -- this.setState({ score: this.state.score + 1 })
-  // -- this.setState({ topScore: this.state.topScore + 1 })
-  // -- you guessed displays 'correctly'
-  // -- images shuffle
-  // if there IS a match:
-  // -- score goes back to 0
-  // -- top score is passed to an array which always displays the highest score
-  // -- you guessed displays 'incorrectly'
-  // -- imgArr is emptied
-  // -- shuffle(imgArr)
-
-
-  // function to manage score and top score  
-
-
   render() {
-
 
     return (
       <>
         <TopNav
           score={this.state.score}
-          topScore={this.state.topScore}
+          topScoreArr={this.state.topScoreArr}
           goodGuess={this.state.goodGuess}
         />
 
         <ImgBtn
           imgArr={this.state.imgArr}
           handleClickImage={this.handleClickImage}
-          handleEvaluateMatch={this.handleEvaluateMatch}
-          handleShuffle={this.handleShuffle}
         />
 
       </>

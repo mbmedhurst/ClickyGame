@@ -3,10 +3,12 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+// npm package which finds largest number in an array
+import large from 'largest-element'
 
 class TopNav extends Component {
     render() {
-        const { score, topScore, goodGuess } = this.props
+        const { score, goodGuess, topScoreArr } = this.props
 
         return (
             <div style={{ flexGrow: 1 }}>
@@ -20,12 +22,12 @@ class TopNav extends Component {
                             </Grid>
                             <Grid item xs={4}>
                                 <Typography variant="h6" color="inherit">
-                                    You guessed {this.props.goodGuess}!
+                                    {this.props.goodGuess}
                                 </Typography>
                             </Grid>
                             <Grid item xs={4}>
                                 <Typography variant="h6" color="inherit">
-                                    Score: {this.props.score} | Top Score: {this.props.topScore}
+                                    Score: {this.props.score} | Top Score: {large(this.props.topScoreArr)}
                                 </Typography>
                             </Grid>
                         </Grid>
