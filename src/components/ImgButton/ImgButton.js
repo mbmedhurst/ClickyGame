@@ -1,19 +1,23 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './ImgButton.css'
 import Button from '@material-ui/core/button'
 
-const ImgBtn = ({ imgArr }) => {
+
+class ImgBtn extends Component {
+    render() {
+    const { imgArr, handleClickImage } = this.props
 
     return (
-        <div id='container' style={{margin: '50px 200px'}}> {
+        <div id='container' style={{margin: '50px 250px'}}> {
             imgArr.map(img => {
-                return <Button className='imgBtn' style={{ height: '150px', width: '200px', marginTop: '20px' }} onClick={() => console.log(img)}>
+                return <Button className='imgBtn' style={{ height: '120px', width: '160px', marginBottom: '20px' }} onClick={() => handleClickImage(img)}>
                     <img className='image' style={{ maxWidth: '100%', maxHeight: '100%' }} src={img} alt='landmark'></img>
                 </Button>
             })
         }
         </div>
     )
+    }
 }
 
 export default ImgBtn
