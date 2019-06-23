@@ -10,7 +10,7 @@ class App extends Component {
       'https://assets.fnlondon.com/2016/10/IMG013025_full4x3.jpg?width=620&height=465',
       'https://www.readersdigest.ca/wp-content/uploads/sites/14/2017/06/american-landmarks-statue-of-liberty.jpg',
       'https://media-cdn.sygictraveldata.com/media/800x600/612664395a40232133447d33247d3832343638393835',
-      'https://i1.wp.com/frenchmoments.eu/wp-content/uploads/2013/10/Paris-%C2%A9-French-Moments-Tour-Eiffel-Structure-01.jpg?fit=2048%2C1536&ssl=1',
+      'https://media.cntraveler.com/photos/5539216cab60aad20f3f3aaa/4:3/w_480,c_limit/eiffel-tower-paris-secret-apartment.jpg',
       'https://assets.classicfm.com/2012/42/brandenburg-gate-1350560062-view-0.jpg',
       'https://img.etimg.com/thumb/msid-67205335,width-643,imgsize-796545,resizemode-4/big-ben.jpg',
       'https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/02/Sydney-Opera-House_Side-angle-1200x856.jpg',
@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   // function to shuffle the images
+  // this is working!
   handleShuffle = _ => {
     let imgArr = this.state.imgArr
     shuffle(imgArr)
@@ -34,12 +35,14 @@ class App extends Component {
   }
 
   // function to determine if click is a match or not
+  // the push to the guessed array is working
+  // the function to check if there is a match is not working
   handleClickImage = (img) => {
     let guesses = this.state.guesses
+    this.handleEvaluateMatch(img)
     guesses.push(img)
     this.setState({ ...img })
     console.log(guesses)
-    this.handleEvaluateMatch()
     this.handleShuffle()
   }
 
@@ -47,14 +50,15 @@ class App extends Component {
   handleEvaluateMatch = (img) => {
     let guesses = this.state.guesses
     for (var i = 0; i < guesses.length; i++) {
-      if (img === i) {
-        console.log('You guessed incorrectly!')
-      } else {
+      if (img !== guesses[i]) {
         console.log('You guessed correctly!')
-
+      } else {
+        console.log('You guessed incorrectly!')
       }
     }
   }
+
+
 
   // clicked image id is pushed to an arry of clicked images
   // every time an image is clicked, we loop through the array to see if there is a match

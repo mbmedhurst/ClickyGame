@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 
 class TopNav extends Component {
     render() {
-        const { score, topScore } = this.props
+        const { score, topScore, goodGuess } = this.props
 
         return (
             <div style={{ flexGrow: 1 }}>
@@ -20,7 +20,7 @@ class TopNav extends Component {
                             </Grid>
                             <Grid item xs={4}>
                                 <Typography variant="h6" color="inherit">
-                                    You guessed Correctly!
+                                    You guessed {this.props.goodGuess}!
                                 </Typography>
                             </Grid>
                             <Grid item xs={4}>
