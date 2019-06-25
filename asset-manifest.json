@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ClickyGame/static/css/main.d89d22e4.chunk.css",
+    "main.js": "/ClickyGame/static/js/main.17f706ef.chunk.js",
+    "main.js.map": "/ClickyGame/static/js/main.17f706ef.chunk.js.map",
+    "runtime~main.js": "/ClickyGame/static/js/runtime~main.1eb9bb0a.js",
+    "runtime~main.js.map": "/ClickyGame/static/js/runtime~main.1eb9bb0a.js.map",
+    "static/js/2.ae6fbdd5.chunk.js": "/ClickyGame/static/js/2.ae6fbdd5.chunk.js",
+    "static/js/2.ae6fbdd5.chunk.js.map": "/ClickyGame/static/js/2.ae6fbdd5.chunk.js.map",
+    "index.html": "/ClickyGame/index.html",
+    "precache-manifest.97319c088ce5394b341b12805a24c4cc.js": "/ClickyGame/precache-manifest.97319c088ce5394b341b12805a24c4cc.js",
+    "service-worker.js": "/ClickyGame/service-worker.js",
+    "static/css/main.d89d22e4.chunk.css.map": "/ClickyGame/static/css/main.d89d22e4.chunk.css.map",
+    "static/media/App.css": "/ClickyGame/static/media/white-waves.a06a3248.png"
+  }
+}

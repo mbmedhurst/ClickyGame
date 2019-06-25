@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css","ImgButton.css"],"names":[],"mappings":"AAAA,KACE,uEAAA,CCAE,iBDCJ","file":"main.d89d22e4.chunk.css","sourcesContent":["body {\n  background-image: url(./assets/images/white-waves.png)\n}","body {\n    text-align: center;\n}"]}
