@@ -36,7 +36,7 @@ class App extends Component {
     this.setState({ imgArr })
   }
 
-  // function to determine if click is a match or not
+  // function to handle click on an image
   // this is working!
   handleClickImage = (img) => {
     let guesses = this.state.guesses
@@ -44,18 +44,20 @@ class App extends Component {
     this.handleShuffle(img)
   }
 
-  // function to evaluate whether the image has already been clicked
+  // function to handle scenarios depending on if image has already been clicked or not
   handleEvaluateMatch = (img) => {
     const { guesses } = this.state
     if (guesses.indexOf(img) < 0) {
       this.setState({
         guesses: [...this.state.guesses, img],
+        goodGuess: 'You guessed correctly!',
         score: this.state.score + 1,
         topScoreArr: [...this.state.topScoreArr, this.state.score + 1]
       })
     } else {
       this.setState({
         guesses: [],
+        goodGuess: 'You guessed incorrectly!',
         score: 0,
       })
     }
