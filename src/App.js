@@ -41,50 +41,43 @@ class App extends Component {
   handleClickImage = (img) => {
     let guesses = this.state.guesses
     this.handleEvaluateMatch(img)
-    guesses.push(img)
-    this.setState({ ...img })
-    console.log(guesses)
-    this.handleShuffle()
+    this.handleShuffle(img)
   }
 
   // function to evaluate whether the image has already been clicked
   handleEvaluateMatch = (img) => {
-    let guesses = this.state.guesses
-    let score = this.state.score
-    let topScoreArr = this.state.topScoreArr
-    for (var i = -1; i < guesses.length; i++) {
-      if (img !== guesses[i]) {
-        this.setState({ score: this.state.score + 1, goodGuess: 'You guessed correctly!' })
-        // the top score array is always one click behind the score
-        topScoreArr.push(this.state.score)
-        this.setState({ ...score })
-        console.log(topScoreArr)
-      } else {
-        console.log('You guessed incorrectly!')
-        // reset score is not working consistently
-        this.setState({ guesses: [], score: 0, goodGuess: 'You guessed incorrectly!' })
-      }
+    const { guesses } = this.state
+    if (guesses.indexOf(img) < 0) {
+      this.setState({
+        guesses: [...this.state.guesses, img],
+        score: this.state.score + 1,
+        topScoreArr: [...this.state.topScoreArr, this.state.score + 1]
+      })
+    } else {
+      this.setState({
+        guesses: [],
+        score: 0,
+      })
+    }
+  }
+  
+    render() {
+
+      return (
+        <>
+          <TopNav
+            score={this.state.score}
+            topScoreArr={this.state.topScoreArr}
+            goodGuess={this.state.goodGuess}
+          />
+
+          <ImgBtn
+            imgArr={this.state.imgArr}
+            handleClickImage={this.handleClickImage}
+          />
+        </>
+      )
     }
   }
 
-  render() {
-
-    return (
-      <>
-        <TopNav
-          score={this.state.score}
-          topScoreArr={this.state.topScoreArr}
-          goodGuess={this.state.goodGuess}
-        />
-
-        <ImgBtn
-          imgArr={this.state.imgArr}
-          handleClickImage={this.handleClickImage}
-        />
-
-      </>
-    )
-  }
-}
-
-export default App
+  export default App
