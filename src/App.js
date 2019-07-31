@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import TopNav from './components/TopNav'
 import ImgBtn from './components/ImgButton'
+import YouWin from './components/YouWin'
 // npm package which shuffles an array
 import shuffle from 'shuffle-array'
 
@@ -25,7 +26,7 @@ class App extends Component {
     guesses: [],
     score: 0,
     topScoreArr: [0],
-    goodGuess: 'Click an image to begin!'
+    goodGuess: 'Click an image to begin!',
   }
 
   // function to shuffle the images
@@ -36,7 +37,7 @@ class App extends Component {
     this.setState({ imgArr })
   }
 
-  // function to handle click on an image
+  // function to handle clicking on an image
   // this is working!
   handleClickImage = (img) => {
     let guesses = this.state.guesses
@@ -62,6 +63,8 @@ class App extends Component {
       })
     }
   }
+
+  
   
     render() {
 
