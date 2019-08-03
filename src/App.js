@@ -48,14 +48,21 @@ class App extends Component {
   // function to handle scenarios depending on if image has already been clicked or not
   handleEvaluateMatch = (img) => {
     const { guesses } = this.state
-    if (guesses.indexOf(img) < 0) {
+    if (guesses.indexOf(img) < 0 && this.state.score < 12) {
       this.setState({
         guesses: [...this.state.guesses, img],
         goodGuess: 'You guessed correctly!',
         score: this.state.score + 1,
         topScoreArr: [...this.state.topScoreArr, this.state.score + 1]
       })
+    } else if (this.state.score === 12) {
+      alert('You Win!')
+      this.setState({
+        guesses: [],
+        score: 0,
+      })
     } else {
+      alert('You guessed incorrectly. Try again!')
       this.setState({
         guesses: [],
         goodGuess: 'You guessed incorrectly!',
