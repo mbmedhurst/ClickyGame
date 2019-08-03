@@ -46,6 +46,7 @@ class App extends Component {
 
   // function to handle scenarios depending on if image has already been clicked or not
   // and if top socre of 12 has been reached
+  // this is working!
   handleEvaluateMatch = (img) => {
     const { guesses } = this.state
     if (guesses.indexOf(img) < 0 && this.state.score < 12) {
