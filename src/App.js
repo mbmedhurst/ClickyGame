@@ -61,6 +61,7 @@ class App extends Component {
       this.setState({
         guesses: [],
         score: 0,
+        goodGuess: 'Click an image to begin!'
       })
     } else {
       alert('You guessed incorrectly. Try again!')
