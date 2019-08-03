@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './ImgButton.css'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/button'
+import Button from '@material-ui/core/Button'
 
 class ImgBtn extends Component {
     render() {
