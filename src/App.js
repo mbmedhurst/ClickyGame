@@ -6,7 +6,6 @@ import YouWin from './components/YouWin'
 // npm package which shuffles an array
 import shuffle from 'shuffle-array'
 
-
 class App extends Component {
   state = {
     imgArr: [
@@ -70,8 +69,6 @@ class App extends Component {
       })
     }
   }
-
-  
   
     render() {
 
