@@ -26,6 +26,7 @@ class App extends Component {
     score: 0,
     topScoreArr: [0],
     goodGuess: 'Click an image to begin!',
+    winLose: ''
   }
 
   // function to shuffle the images
@@ -61,35 +62,40 @@ class App extends Component {
       this.setState({
         guesses: [],
         score: 0,
-        goodGuess: 'Click an image to begin!'
+        goodGuess: 'Click an image to begin!',
+        winLose: 'You Win!'
       })
     } else {
-      alert('You guessed incorrectly. Try again!')
+      // alert('You guessed incorrectly. Try again!')
       this.setState({
         guesses: [],
         goodGuess: 'You guessed incorrectly!',
         score: 0,
+        winLose: 'You guessed incorrectly. Try again!'
       })
-    }
-  }
-  
-    render() {
-
-      return (
-        <>
-          <TopNav
-            score={this.state.score}
-            topScoreArr={this.state.topScoreArr}
-            goodGuess={this.state.goodGuess}
-          />
-
-          <ImgBtn
-            imgArr={this.state.imgArr}
-            handleClickImage={this.handleClickImage}
-          />
-        </>
-      )
+      return <YouWin 
+        winLose={this.props.winLose}
+      />
     }
   }
 
-  export default App
+  render() {
+
+    return (
+      <>
+        <TopNav
+          score={this.state.score}
+          topScoreArr={this.state.topScoreArr}
+          goodGuess={this.state.goodGuess}
+        />
+
+        <ImgBtn
+          imgArr={this.state.imgArr}
+          handleClickImage={this.handleClickImage}
+        />
+      </>
+    )
+  }
+}
+
+export default App
