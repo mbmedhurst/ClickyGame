@@ -13,7 +13,7 @@ A memory game where the user has to avoid clicking on the same image more than o
 
 ### To Run on Local Machine
 * clone git repository
-* install dependencies by running **_npm install_** in both the global and client direcotories
+* install dependencies by running **_npm install_** in the global directory
 * run **_npm start_** in the terminal
 * the app should open on your local server
 
