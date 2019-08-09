@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import TopNav from './components/TopNav'
 import ImgBtn from './components/ImgButton'
-import YouWin from './components/YouWin'
+// import YouWin from './components/YouWin'
 // npm package which shuffles an array
 import shuffle from 'shuffle-array'
 
@@ -66,16 +66,13 @@ class App extends Component {
         winLose: 'You Win!'
       })
     } else {
-      // alert('You guessed incorrectly. Try again!')
+      alert('You guessed incorrectly. Try again!')
       this.setState({
         guesses: [],
         goodGuess: 'You guessed incorrectly!',
         score: 0,
         winLose: 'You guessed incorrectly. Try again!'
       })
-      return <YouWin 
-        winLose={this.props.winLose}
-      />
     }
   }
 
